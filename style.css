@@ -1,32 +1,50 @@
+:root {
+    --myangle: 0deg;
+}
+
 body {
     font-family: sans-serif;
     color: white;
     background-color: black;
+    font-size: 36px;
+
+    /*
+    -ms-transform: rotate(var(--myangle));
+    -webkit-transform: rotate(var(--myangle)); 
+    -moz-transform: rotate(var(--myangle));
+    -o-transform: rotate(var(--myangle));
+    -sand-transform: rotate(var(--myangle));
+    transform: rotate(var(--myangle));
+    */
 }
 
 h2 {
     margin: auto;
     text-transform: uppercase;
     letter-spacing: 1ch;
+    font-size: 10vw;
+
+}
+
+p {
+    margin: auto;
+    text-align: left;
+    width: 50%;
+}
+
+.card {
+    width: 100%;
+    height: fit-content;
 }
 
 .about {
-    width: 100%;
-    height: 100vh;
     background-color: #17A398;
-    background-size: cover;
 }
 
 .links {
-    width: 100%;
-    height: 100vh;
     background-color: #662C91;
-    background-size: cover;
 }
 
 .blog {
-    width: 100%;
-    height: 100vh;
     background-color: #F38D68;
-    background-size: cover;
 }
