@@ -7,8 +7,9 @@
     /* sets monospace as the default font for everything on the page */
     font-family: monospace, sans-serif;
 }
+
 /* Targets anything with a class containing the box- in front. Used to give the sections an outline for layout debugging etc */
-[class ^= "box-"] {
+[class ^="box-"] {
     display: grid;
 
     /* centers on both horizontal and vertical axes*/
@@ -17,49 +18,85 @@
     /* border: solid 5px red; */
     padding: 10px;
     border-radius: 20px;
-    color: #00100B;
-  }
+    
+}
+
+
 
 body {
-    background: linear-gradient(180deg, pink, white);
-    height: 100vh;
+    background: pink;
+    height: 100%;
+    color: grey;
 }
 
 .container {
-    height: 100vh;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     margin: 20px auto;
-    
+
     display: grid;
     gap: 20px;
-    
+
     /* creates a 12 by 12 grid to position elements inside */
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: 1, 1fr;
+    grid-template-rows: 1fr 3fr;
 }
 
- .box-header {
-     grid-column: 1 / 13 ;
-     grid-row: 1 / 2 ;
+.box-header {
+    grid-row: 1 / 2;
 
-     text-transform: uppercase;
-     font-size: 40px;
- }
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 900;
+}
 
- .box-info {
-    grid-column: 2 / 12 ;
 
-    border: solid 10px black;
-    background: linear-gradient(45deg,#F038FF, #DBFCFF);
+.box-info {
+    display: grid;
+    grid-column: 3 / 11;
+
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    background: linear-gradient(45deg, #F038FF, #DBFCFF);
+    text-align: justify;
+}
+
+.blurb {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+.my-links {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    align-self: flex-start;
+}
+
+.my-tools {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: flex-start;
+    display: none;
+}
+
+.my-learning {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    align-self: flex-start;
+    display: none;
 }
 
 .box-blog {
     grid-column: 2 / 12;
+    grid-row: 5 / 13;
 
-    border: solid 10px black;
-    /* overflow: auto; */
+    /* border: solid 10px black; */
+    overflow: auto;
+    background: linear-gradient(white, white);
+
     text-align: justify;
-    padding: 0 5ch;
+    padding:  20ch;
 }
 
 .warning {
@@ -80,25 +117,137 @@ a {
 }
 
 a:hover {
-    display:inline-block;
+    display: inline-block;
     color: cyan;
     text-transform: uppercase;
     text-shadow: 2px 2px 8px white;
-    /* transform: translate(0,-.25ch); */
     background-color: black;
-    /* padding: .25ch .25ch; */
-    border-radius: 10px;
+    border-radius: 5px;
+    transform: scale(0.9);
+}
+
+@media (min-width: 990px) {
+
+    body {
+        background: linear-gradient(180deg, pink, white);
+        height: 100vh;
+        overflow: hidden;
+        color: #00100B;
+    }
+    
+    .container {
+        height: 95vh;
+        width: 90%;
+        margin: 20px auto;
+    
+        display: grid;
+        gap: 20px;
+    
+        /* creates a 12 by 12 grid to position elements inside */
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+    }
+    
+    .box-header {
+        grid-column: 1 / 13;
+        grid-row: 1 / 2;
+    
+        text-transform: uppercase;
+        font-size: 40px;
+        font-weight: 900;
+        letter-spacing: 2ch;
+    }
+    
+    
+    .box-info {
+        display: grid;
+        grid-column: 3 / 11;
+    
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    
+        /* border: solid 10px black; */
+    
+        border-left: solid 10px black;
+        border-top: solid 10px black;
+    
+        background: linear-gradient(45deg, #F038FF, #DBFCFF);
+        text-align: justify;
+    }
+    
+    .blurb {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+    }
+    
+    .my-links {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        align-self: flex-start;
+    }
+    
+    .my-tools {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        align-self: flex-start;
+    }
+    
+    .my-learning {
+        grid-column: 3 / 4;
+        grid-row: 2 / 3;
+        align-self: flex-start;
+    }
+    
+    .box-blog {
+        grid-column: 2 / 12;
+        grid-row: 5 / 13;
+    
+        /* border: solid 10px black; */
+        overflow: auto;
+        background: linear-gradient(white, white);
+    
+        text-align: justify;
+        padding:  20ch;
+    }
+    
+    .warning {
+        text-transform: uppercase;
+        text-decoration: overline underline;
+        font-style: italic;
+        font-size: larger;
+    }
+    
+    .plain {
+        list-style-type: none;
+        text-decoration: none;
+    }
+    
+    a {
+        color: blue;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        display: inline-block;
+        color: cyan;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 8px white;
+        background-color: black;
+        border-radius: 5px;
+        transform: scale(0.9);
+    }
+    
 }
 
 /* THE SPHERE - creates a circle filled with a gradient */
 .ball {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-color: purple;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    background-image: linear-gradient(45deg,#F038FF, #DBFCFF);
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
+margin-bottom: 20px;
+border-color: purple;
+border-radius: 50%;
+width: 150px;
+height: 150px;
+background-image: linear-gradient(45deg, #F038FF, #DBFCFF);
 }
