@@ -5,37 +5,36 @@
     margin: 0;
     padding: 0;
     /* sets monospace as the default font for everything on the page */
-    font-family: monospace;
-    /* stops the page from scrolling vertically */
-    overflow-y: auto;
-    /* hides horizontal scroll unles specified further down the style sheet */
-    overflow-x: hidden;
+    font-family: monospace, sans-serif;
 }
-/* Targets anything with a class containing the box- in front. Used to give the sections an outline for layout debuggin etc */
+/* Targets anything with a class containing the box- in front. Used to give the sections an outline for layout debugging etc */
 [class ^= "box-"] {
     display: grid;
+
+    /* centers on both horizontal and vertical axes*/
     place-items: center;
-    border: solid 5px orangered;
+
+    border: solid 5px red;
     padding: 10px;
     border-radius: 20px;
-    box-shadow: 0 0 5px rgba(0,0,0,.1);
     color: #00100B;
   }
 
 body {
-    background: linear-gradient(#ADEEE3, #F2BAC9);
+    background: linear-gradient(180deg, pink, white);
     height: 100vh;
-    font-size: 30px;
+    overflow-y: hidden;
 }
 
 .container {
     height: 95vh;
-    width: 90%;
+    width: 90vw;
     margin: 20px auto;
     
     display: grid;
     gap: 20px;
     
+    /* creates a 12 by 12 grid to position elements inside */
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
 }
@@ -43,31 +42,74 @@ body {
  .box-header {
      grid-column: 1 / 10;
      grid-row: 1 / 2;
+
      text-transform: uppercase;
+     font-size: 40px;
  }
 
  .box-info {
     grid-column: 10 / 13;
-    grid-row: 1 / 5;
+    grid-row: 1 / 6;
+
+    border: solid 10px black;
+    background: linear-gradient(45deg,#F038FF, #DBFCFF);
 }
 
 .box-resources {
     grid-column: 10 / 13;
-    grid-row: 5 / 12;
+    grid-row: 6 / 12;
+
+    border: solid 10px black;
+    background: linear-gradient(45deg,#F038FF, #DBFCFF);
 }
 
 .box-blog {
     grid-column: 1 / 10;
     grid-row: 2 / 12;
 
-    /* allows the blog window to be scrolled through so you can read older posts but hides the scroll when there is no content*/
     overflow: auto;
 
-    /* hides the horizontal scrollbar */
-    overflow-x: hidden;
+    border: solid 10px black;
+    
+    text-align: justify;
+    padding: 0 5ch;
 }
 
 .box-footer {
     grid-column: 1 / 13;
     grid-row: 12 / 13;
+}
+
+/* THE BALL */
+.ball {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: purple;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-image: linear-gradient(45deg,#F038FF, #DBFCFF);
+}
+
+.warning {
+    text-transform: uppercase;
+    text-decoration: overline underline;
+    font-style: italic;
+    font-size: larger;
+}
+
+.plain {
+    list-style-type: none;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: blue;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px cyan;
 }
