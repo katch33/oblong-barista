@@ -1,50 +1,73 @@
-:root {
-    --myangle: 0deg;
+* {
+    /* Makes box sizing take padding and margins into account. */
+    box-sizing: border-box;
+    /* Sets default margin and padding to 0 */
+    margin: 0;
+    padding: 0;
+    /* sets monospace as the default font for everything on the page */
+    font-family: monospace;
+    /* stops the page from scrolling vertically */
+    overflow-y: auto;
+    /* hides horizontal scroll unles specified further down the style sheet */
+    overflow-x: hidden;
 }
+/* Targets anything with a class containing the box- in front. Used to give the sections an outline for layout debuggin etc */
+[class ^= "box-"] {
+    display: grid;
+    place-items: center;
+    border: solid 5px orangered;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+    color: #00100B;
+  }
 
 body {
-    font-family: sans-serif;
-    color: white;
-    background-color: black;
-    font-size: 36px;
-
-    /*
-    -ms-transform: rotate(var(--myangle));
-    -webkit-transform: rotate(var(--myangle)); 
-    -moz-transform: rotate(var(--myangle));
-    -o-transform: rotate(var(--myangle));
-    -sand-transform: rotate(var(--myangle));
-    transform: rotate(var(--myangle));
-    */
+    background: linear-gradient(#ADEEE3, #F2BAC9);
+    height: 100vh;
+    font-size: 30px;
 }
 
-h2 {
-    margin: auto;
-    text-transform: uppercase;
-    letter-spacing: 1ch;
-    font-size: 10vw;
-
+.container {
+    height: 95vh;
+    width: 90%;
+    margin: 20px auto;
+    
+    display: grid;
+    gap: 20px;
+    
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
 }
 
-p {
-    margin: auto;
-    text-align: left;
-    width: 50%;
+ .box-header {
+     grid-column: 1 / 10;
+     grid-row: 1 / 2;
+     text-transform: uppercase;
+ }
+
+ .box-info {
+    grid-column: 10 / 13;
+    grid-row: 1 / 5;
 }
 
-.card {
-    width: 100%;
-    height: fit-content;
+.box-resources {
+    grid-column: 10 / 13;
+    grid-row: 5 / 12;
 }
 
-.about {
-    background-color: #17A398;
+.box-blog {
+    grid-column: 1 / 10;
+    grid-row: 2 / 12;
+
+    /* allows the blog window to be scrolled through so you can read older posts but hides the scroll when there is no content*/
+    overflow: auto;
+
+    /* hides the horizontal scrollbar */
+    overflow-x: hidden;
 }
 
-.links {
-    background-color: #662C91;
-}
-
-.blog {
-    background-color: #F38D68;
+.box-footer {
+    grid-column: 1 / 13;
+    grid-row: 12 / 13;
 }
