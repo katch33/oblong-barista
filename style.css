@@ -14,7 +14,7 @@
     /* centers on both horizontal and vertical axes*/
     place-items: center;
 
-    border: solid 5px red;
+    /* border: solid 5px red; */
     padding: 10px;
     border-radius: 20px;
     color: #00100B;
@@ -23,12 +23,11 @@
 body {
     background: linear-gradient(180deg, pink, white);
     height: 100vh;
-    overflow-y: hidden;
 }
 
 .container {
-    height: 95vh;
-    width: 90vw;
+    height: 100vh;
+    width: 90%;
     margin: 20px auto;
     
     display: grid;
@@ -40,57 +39,27 @@ body {
 }
 
  .box-header {
-     grid-column: 1 / 10;
-     grid-row: 1 / 2;
+     grid-column: 1 / 13 ;
+     grid-row: 1 / 2 ;
 
      text-transform: uppercase;
      font-size: 40px;
  }
 
  .box-info {
-    grid-column: 10 / 13;
-    grid-row: 1 / 6;
-
-    border: solid 10px black;
-    background: linear-gradient(45deg,#F038FF, #DBFCFF);
-}
-
-.box-resources {
-    grid-column: 10 / 13;
-    grid-row: 6 / 12;
+    grid-column: 2 / 12 ;
 
     border: solid 10px black;
     background: linear-gradient(45deg,#F038FF, #DBFCFF);
 }
 
 .box-blog {
-    grid-column: 1 / 10;
-    grid-row: 2 / 12;
-
-    overflow: auto;
+    grid-column: 2 / 12;
 
     border: solid 10px black;
-    
+    /* overflow: auto; */
     text-align: justify;
     padding: 0 5ch;
-}
-
-.box-footer {
-    grid-column: 1 / 13;
-    grid-row: 12 / 13;
-}
-
-/* THE BALL */
-.ball {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-color: purple;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    background-image: linear-gradient(45deg,#F038FF, #DBFCFF);
 }
 
 .warning {
@@ -102,14 +71,34 @@ body {
 
 .plain {
     list-style-type: none;
+    text-decoration: none;
 }
 
 a {
-    color: white;
+    color: blue;
+    text-decoration: none;
 }
 
 a:hover {
-    color: blue;
+    display:inline-block;
+    color: cyan;
     text-transform: uppercase;
-    text-shadow: 2px 2px 8px cyan;
+    text-shadow: 2px 2px 8px white;
+    /* transform: translate(0,-.25ch); */
+    background-color: black;
+    /* padding: .25ch .25ch; */
+    border-radius: 10px;
+}
+
+/* THE SPHERE - creates a circle filled with a gradient */
+.ball {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-color: purple;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-image: linear-gradient(45deg,#F038FF, #DBFCFF);
 }
